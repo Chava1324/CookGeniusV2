@@ -1,0 +1,16 @@
+# Node
+node_modules/
+dist/
+
+# Laravel
+vendor/
+storage/
+.env
+.env.backup
+
+# Vite/React
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
