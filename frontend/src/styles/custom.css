@@ -1,0 +1,357 @@
+/* src/styles/custom.css */
+
+/* Paleta de colores principal */
+:root {
+  --color-primary: #4caf50;
+  --color-secondary: #ffb74d;
+  --color-dark: #2c3e50;
+  --color-light: #f9fafb;
+  --color-gray: #e5e7eb;
+  --color-text: #1f2937;
+}
+
+/* Estilos globales */
+body {
+  background-color: var(--color-light);
+  color: var(--color-text);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand span:first-child {
+  color: var(--color-primary);
+}
+.navbar-brand span:last-child {
+  color: var(--color-secondary);
+}
+
+.nav-link {
+  color: var(--color-dark) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  background-color: var(--color-primary);
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #43a047;
+}
+
+.btn-accent {
+  background-color: var(--color-secondary);
+  border: none;
+  color: #fff;
+}
+.btn-accent:hover {
+  background-color: #ffa726;
+}
+
+/* Efectos suaves */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Transiciones suaves */
+a, button {
+  transition: all 0.3s ease;
+}
+
+
+/* === HERO SECTION === */
+.hero-section {
+  padding: 3rem 0 2rem; /* Menor altura vertical */
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fafb 100%
+  );
+}
+.hero-section h1 span.text-primary {
+  color: #00a86b;
+}
+
+/* Contenedor del input animado */
+.typing-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Input real (donde escribe el usuario) */
+.typing-input {
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  color: #222;
+}
+
+/* Placeholder animado */
+.typing-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-style: italic;
+  pointer-events: none;
+  font-size: 1.1rem;
+  z-index: 1;
+}
+
+/* Cursor parpadeante */
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  color: #00a86b;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero-section input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+  animation: blinkCursor 0.8s infinite;
+}
+
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
+/* carrusel de fotos */
+
+.carousel-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+.swiper-slide {
+  opacity: 0.2;              /* más opaco para las que están “atrás” */
+  transform: scale(0.80);
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+  transform: scale(1.05);
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  opacity: 0.5;             /* intermedio para las que se mueven hacia/desde el frente */
+  transform: scale(0.90);
+}
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  opacity: 0;
+  transition: all 1.2s ease-in-out;
+  filter: brightness(60%);
+}
+
+.carousel-image.center {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.05);
+  filter: brightness(100%);
+  z-index: 3;
+}
+
+.carousel-image.left {
+  opacity: 0.5;
+  transform: translateX(-150%) scale(0.9);
+  z-index: 2;
+}
+
+.carousel-image.right {
+  opacity: 0.5;
+  transform: translateX(50%) scale(0.9);
+  z-index: 2;
+}
+
+.menu-card-compact {
+  border-radius: 16px;
+  padding: 18px;
+  background: #ffffff;
+  border: none;
+  min-height: 120px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-card-compact:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.menu-card-compact .title-zone {
+  line-height: 1.2;
+}
+
+.menu-card-compact .detail-zone {
+  font-size: 0.92rem;
+}
+
+.menu-card-compact ul,
+.menu-card-compact ol {
+  padding-left: 18px;
+}
+
+
+.footer {
+  background: #FAFAFA; /* fondo claro */
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #212121; /* texto principal */
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.04);
+}
+
+.footer-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.1));
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.footer-link:hover {
+  color: #388E3C; /* tono más oscuro del verde hoja */
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Burbujas suaves de luz */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%
+  );
+  animation: floatUp 18s infinite ease-in-out;
+  filter: blur(25px);
+}
+
+/* Tamaños y posiciones iniciales */
+.bubble-1 {
+  width: 160px;
+  height: 160px;
+  left: 10%;
+  bottom: -150px;
+  animation-duration: 22s;
+}
+
+.bubble-2 {
+  width: 220px;
+  height: 220px;
+  left: 70%;
+  bottom: -200px;
+  animation-duration: 26s;
+}
+
+.bubble-3 {
+  width: 120px;
+  height: 120px;
+  left: 40%;
+  bottom: -130px;
+  animation-duration: 18s;
+}
+
+.bubble-4 {
+  width: 300px;
+  height: 300px;
+  left: 20%;
+  bottom: -280px;
+  animation-duration: 30s;
+}
+
+.bubble-5 {
+  width: 180px;
+  height: 180px;
+  left: 85%;
+  bottom: -180px;
+  animation-duration: 24s;
+}
+
+/* Animación de ascenso con movimiento lateral y blur progresivo */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.4;
+    filter: blur(8px);
+  }
+  40% {
+    transform: translateY(-200px) translateX(-20px) scale(1.1);
+    opacity: 0.6;
+    filter: blur(15px);
+  }
+  70% {
+    transform: translateY(-450px) translateX(20px) scale(1.25);
+    opacity: 0.35;
+    filter: blur(25px);
+  }
+  100% {
+    transform: translateY(-700px) translateX(-10px) scale(1.4);
+    opacity: 0;
+    filter: blur(35px);
+  }
+}

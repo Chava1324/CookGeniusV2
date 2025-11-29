@@ -1,0 +1,84 @@
+.light-bubbles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%
+  );
+  animation: floatUp 18s infinite ease-in-out;
+  filter: blur(25px);
+}
+
+/* Tamaños y posiciones */
+.bubble-1 {
+  width: 160px;
+  height: 160px;
+  left: 10%;
+  bottom: -150px;
+  animation-duration: 22s;
+}
+
+.bubble-2 {
+  width: 220px;
+  height: 220px;
+  left: 70%;
+  bottom: -200px;
+  animation-duration: 26s;
+}
+
+.bubble-3 {
+  width: 120px;
+  height: 120px;
+  left: 40%;
+  bottom: -130px;
+  animation-duration: 18s;
+}
+
+.bubble-4 {
+  width: 300px;
+  height: 300px;
+  left: 20%;
+  bottom: -280px;
+  animation-duration: 30s;
+}
+
+.bubble-5 {
+  width: 180px;
+  height: 180px;
+  left: 85%;
+  bottom: -180px;
+  animation-duration: 24s;
+}
+
+/* Animación */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.4;
+    filter: blur(8px);
+  }
+  40% {
+    transform: translateY(-200px) translateX(-20px) scale(1.1);
+    opacity: 0.6;
+    filter: blur(15px);
+  }
+  70% {
+    transform: translateY(-450px) translateX(20px) scale(1.25);
+    opacity: 0.35;
+    filter: blur(25px);
+  }
+  100% {
+    transform: translateY(-700px) translateX(-10px) scale(1.4);
+    opacity: 0;
+    filter: blur(35px);
+  }
+}
